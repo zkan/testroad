@@ -1,3 +1,4 @@
-# TestRoad - Yet Another Test Case Management Tool for ODDS
+# TestRoad
 
-Inspired by [TestRail](https://www.gurock.com/testrail/).
+Yet another test case management tool for ODDS. Inspired by
+[TestRail](https://www.gurock.com/testrail/).
