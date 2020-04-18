@@ -1,0 +1,35 @@
+version: 2
+
+jobs:
+  build-and-test:
+    working_directory: ~/testroad/api
+    docker:
+      - image: circleci/python:3.7.4-node-browsers
+    steps:
+      - checkout:
+          path: ~/testroad
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "poetry.lock" }}
+      - run:
+          name: Install Dependencies
+          command: |
+            poetry install
+      - save_cache:
+          key: deps-{{ checksum "poetry.lock" }}
+          paths:
+            - /home/circleci/.cache/pypoetry/virtualenvs
+      - run:
+          name: Run Static Analysis
+          command: |
+            poetry run flake8 testroad
+      - run:
+          name: Run Tests
+          command: |
+            poetry run pytest testroad
+
+workflows:
+  version: 2
+  build-and-test-workflow:
+    jobs:
+      - build-and-test
