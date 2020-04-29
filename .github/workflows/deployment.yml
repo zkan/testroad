@@ -10,7 +10,7 @@ jobs:
     name: Deployment
     runs-on: ubuntu-18.04
     env:
-      SHA: ${GITHUB_SHA::8}
+      SHA: "${GITHUB_SHA::8}"
     steps:
       - run: |
           echo $SHA
