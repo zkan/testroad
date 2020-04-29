@@ -10,8 +10,8 @@ jobs:
     name: Deployment
     runs-on: ubuntu-18.04
     env:
-      SHA: "${GITHUB_SHA::8}"
+      SHA: ${GITHUB_SHA::8}
     steps:
       - run: |
           echo $SHA
-          "docker build -t 815882715903.dkr.ecr.ap-southeast-1.amazonaws.com/morchana-static-qr-code-api:$SHA8 ."
+          docker build -t 815882715903.dkr.ecr.ap-southeast-1.amazonaws.com/morchana-static-qr-code-api:${{ env.SHA }} .
