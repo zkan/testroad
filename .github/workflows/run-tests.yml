@@ -32,11 +32,11 @@ jobs:
       working-directory: ./api
       run: |
         poetry install
-    - name: Style Guide Enforcement
+    - name: Style guide enforcement
       working-directory: ./api
       run: |
         poetry run flake8 testroad
-    - name: Run Tests
+    - name: Run tests
       working-directory: ./api
       run: |
         poetry run pytest testroad
